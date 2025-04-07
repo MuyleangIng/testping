@@ -1,0 +1,19 @@
+name: Ping Server CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ping-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Ping 203.250.123.204
+        run: |
+          echo "Pinging server..."
+          ping -c 4 203.250.123.204
